@@ -1,0 +1,12 @@
+Bot:
+  Token: "token"
+  GuildId: 123456789
+  SuggestionsChannelId: 0
+  EmbedFooter: Développé par Tom CZEKAJ
+  Activity:
+    Enable: true
+    # Can be PLAYING, STREAMING, LISTENING or WATCHING
+    Type: PLAYING
+    Content: Remy v1.0-SNAPSHOT
+    # Only for streaming
+    URL: null
