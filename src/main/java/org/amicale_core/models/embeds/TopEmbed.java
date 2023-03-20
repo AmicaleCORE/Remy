@@ -3,18 +3,25 @@ package org.amicale_core.models.embeds;
 import org.amicale_core.Remy;
 import org.amicale_core.models.CustomMessage;
 import net.dv8tion.jda.api.EmbedBuilder;
+import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Class used to display an embed for the /top command (currently not added)
+ */
 @SuppressWarnings("unused")
 public class TopEmbed extends EmbedBuilder {
-    public TopEmbed(List<CustomMessage> messages){
+    /**
+     * Constructor for the Top Embed class
+     * @param messages {@link CustomMessage} to display
+     */
+    public TopEmbed(@NotNull final List<CustomMessage> messages){
         this.setColor(Color.GREEN);
         this.setTitle("Produits:");
-        String content;
         for(CustomMessage message: messages){
-            content = String.format("Nombre de votes pour : %s", message.reactionCount());
+            String content = String.format("Nombre de votes pour : %s", message.reactionCount());
             this.addField(String.format("Produit: %s", message.getProductName()), content, false);
         }
         this.setFooter(Remy.CONFIG.getEmbedFooter());
