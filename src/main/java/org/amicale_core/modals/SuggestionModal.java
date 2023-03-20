@@ -12,8 +12,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+/**
+ * Class used to create a {@link AbstractModal} for the /suggest command
+ */
 public class SuggestionModal extends AbstractModal {
 
+    /**
+     * Constructor for the suggestion modal class
+     * Create a modal using {@link ModalField}
+     */
     public SuggestionModal() {
         super("suggestion", "Suggestion",
                 new ModalField("product_name", "Product name", TextInputStyle.SHORT, "Product name", 0, 50));
