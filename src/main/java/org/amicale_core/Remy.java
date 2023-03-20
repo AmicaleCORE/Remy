@@ -17,10 +17,17 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.Scanner;
 
+/**
+ * Main class of Remy bot
+ */
 public class Remy {
 
     public static final RemyConfig CONFIG = new RemyConfig();
 
+    /**
+     * Entry point of the program
+     * @param args custom arguments, not used here
+     */
     public static void main(@NotNull final String[] args){
         try {
             DJApp app = new DJApp(CONFIG.getToken(), "Remy");
@@ -42,6 +49,10 @@ public class Remy {
         }
     }
 
+    /**
+     * Init the bot activity display
+     * @param app {@link DJApp} bot instance
+     */
     private static void initActivity(@NotNull final DJApp app){
         if(!CONFIG.isActivityEnabled()) return;
         String text = CONFIG.getActivityContent();
@@ -54,11 +65,18 @@ public class Remy {
         app.getJDA().getPresence().setActivity(activity);
     }
 
-    public static void sendSuggestion(@NotNull final DJApp djApp, @NotNull final String productName, @NotNull final Member sender, @NotNull final IReplyCallback interaction){
+    /**
+     * Static method to send a suggestion
+     * @param djApp {@link DJApp} bot instance
+     * @param suggestionName Name of the suggestion
+     * @param sender {@link Member} who send the suggestion
+     * @param interaction {@link IReplyCallback} for the reply sending
+     */
+    public static void sendSuggestion(@NotNull final DJApp djApp, @NotNull final String suggestionName, @NotNull final Member sender, @NotNull final IReplyCallback interaction){
         TextChannel targetChannel = new IdUtils(djApp).getTextChannelFromId(Remy.CONFIG.getSuggestionsChannelId());
         if(Objects.isNull(targetChannel))
             throw new RuntimeException("Channel not found");
-        Message message = targetChannel.sendMessageEmbeds(new SuggestionEmbed(productName, Objects.requireNonNull(sender)).build()).complete();
+        Message message = targetChannel.sendMessageEmbeds(new SuggestionEmbed(suggestionName, Objects.requireNonNull(sender)).build()).complete();
         message.addReaction(Emoji.fromUnicode("\uD83D\uDC4D")).queue();
         message.addReaction(Emoji.fromUnicode("\uD83D\uDC4E")).queue();
         interaction.reply("Suggestion envoyée :white_check_mark:").setEphemeral(true).queue();

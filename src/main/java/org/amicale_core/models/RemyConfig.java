@@ -4,7 +4,15 @@ import fr.xen0xys.discordjava.config.Configuration;
 
 import java.io.File;
 
+/**
+ * Used to load the bot configuration file
+ */
 public class RemyConfig extends Configuration {
+
+    /**
+     * Constructor of RemyConfig class
+     * Load the config file
+     */
     public RemyConfig() {
         super(new File("Remy"), "config.yml");
     }

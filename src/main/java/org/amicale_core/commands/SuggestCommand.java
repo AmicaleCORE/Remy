@@ -13,8 +13,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+/**
+ * Class used to create the /suggest command
+ */
 public class SuggestCommand extends AbstractSlashCommand {
 
+    /**
+     * Default constructor for tge suggest command
+     * Create the command using {@link SlashCommandOption}
+     */
     public SuggestCommand() {
         super("suggest", "Allow you to suggest a product",
                 new SlashCommandOption(OptionType.STRING, "product_name", "The name of the product", false));
@@ -28,8 +35,8 @@ public class SuggestCommand extends AbstractSlashCommand {
             djApp.getComponentsManager().handleModal(e.getUser().getIdLong(), modal);
             e.replyModal(modal.getModal()).queue();
         }else{
-            Member member;
-            if(Objects.nonNull(member = e.getMember()))
+            Member member = e.getMember();
+            if(Objects.nonNull(member))
                 Remy.sendSuggestion(djApp, option.getAsString(), member, e);
         }
     }
