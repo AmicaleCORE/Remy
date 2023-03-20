@@ -12,16 +12,16 @@ import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 import java.util.Scanner;
 
 public class Remy {
 
-    public static RemyConfig CONFIG;
+    public static final RemyConfig CONFIG = new RemyConfig();
 
-    public static void main(String[] args){
-        CONFIG = new RemyConfig();
+    public static void main(@NotNull final String[] args){
         try {
             DJApp app = new DJApp(CONFIG.getToken(), "Remy");
             initActivity(app);
@@ -37,29 +37,24 @@ public class Remy {
                     return;
                 }
             }while (true);
-
-
-        } catch (InterruptedException e) {
+        } catch (@NotNull final InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static void initActivity(DJApp app){
-        if(CONFIG.isActivityEnabled()){
-            Activity activity;
-            String text = CONFIG.getActivityContent();
-            activity = switch (CONFIG.getActivityType()) {
-                case "STREAMING" -> Activity.streaming(text, CONFIG.getActivityUrl());
-                case "LISTENING" -> Activity.listening(text);
-                case "WATCHING" -> Activity.watching(text);
-                default -> Activity.playing(text);
-            };
-            app.getJDA().getPresence().setActivity(activity);
-        }
-
+    private static void initActivity(@NotNull final DJApp app){
+        if(!CONFIG.isActivityEnabled()) return;
+        String text = CONFIG.getActivityContent();
+        Activity activity = switch (CONFIG.getActivityType()) {
+            case "STREAMING" -> Activity.streaming(text, CONFIG.getActivityUrl());
+            case "LISTENING" -> Activity.listening(text);
+            case "WATCHING" -> Activity.watching(text);
+            default -> Activity.playing(text);
+        };
+        app.getJDA().getPresence().setActivity(activity);
     }
 
-    public static void sendSuggestion(DJApp djApp, String productName, Member sender, IReplyCallback interaction){
+    public static void sendSuggestion(@NotNull final DJApp djApp, @NotNull final String productName, @NotNull final Member sender, @NotNull final IReplyCallback interaction){
         TextChannel targetChannel = new IdUtils(djApp).getTextChannelFromId(Remy.CONFIG.getSuggestionsChannelId());
         if(Objects.isNull(targetChannel))
             throw new RuntimeException("Channel not found");
