@@ -21,8 +21,12 @@ public class RemyConfig extends Configuration {
         return this.getConfiguration().getLong("Bot.GuildId");
     }
 
-    public long getSuggestionsChannelId(){
-        return this.getConfiguration().getLong("Bot.SuggestionsChannelId");
+    public long getProductSuggestionsChannelId(){
+        return this.getConfiguration().getLong("Bot.ProductSuggestionsChannelId");
+    }
+
+    public long getMusicSuggestionsChannelId(){
+        return this.getConfiguration().getLong("Bot.MusicSuggestionsChannelId");
     }
 
     public String getEmbedFooter(){
