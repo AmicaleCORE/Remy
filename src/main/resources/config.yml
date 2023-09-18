@@ -9,6 +9,6 @@ Bot:
     Enable: true
     # Can be PLAYING, STREAMING, LISTENING or WATCHING
     Type: PLAYING
-    Content: Remy v1.1.0
+    Content: Remy v1.2.0
     # Only for streaming
     URL: null
