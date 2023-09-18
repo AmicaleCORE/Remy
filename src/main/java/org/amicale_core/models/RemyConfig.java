@@ -48,4 +48,8 @@ public class RemyConfig extends Configuration {
     public String getActivityUrl(){
         return this.getConfiguration().getString("Bot.Activity.Url");
     }
+
+    public String getYoutubeApiKey() {
+        return this.getConfiguration().getString("Bot.YoutubeAPIKey");
+    }
 }
