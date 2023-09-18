@@ -3,6 +3,7 @@ Bot:
   GuildId: 0
   ProductSuggestionsChannelId: 0
   MusicSuggestionsChannelId: 0
+  YoutubeAPIKey: "key"
   EmbedFooter: Développé par Tom CZEKAJ
   Activity:
     Enable: true
