@@ -1,14 +1,14 @@
 package org.amicale_core.modals;
 
-import net.dv8tion.jda.api.entities.Member;
-import net.dv8tion.jda.api.entities.MessageEmbed;
-import org.amicale_core.Remy;
 import fr.xen0xys.discordjava.DJApp;
 import fr.xen0xys.discordjava.components.modal.AbstractModal;
 import fr.xen0xys.discordjava.components.modal.ModalField;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.interaction.ModalInteractionEvent;
 import net.dv8tion.jda.api.interactions.components.text.TextInputStyle;
 import net.dv8tion.jda.api.interactions.modals.ModalMapping;
+import org.amicale_core.Remy;
 import org.amicale_core.models.SuggestionType;
 import org.amicale_core.models.embeds.ProductSuggestionEmbed;
 import org.jetbrains.annotations.NotNull;

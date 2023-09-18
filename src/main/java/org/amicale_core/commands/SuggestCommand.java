@@ -4,10 +4,9 @@ import fr.xen0xys.discordjava.DJApp;
 import fr.xen0xys.discordjava.components.commands.AbstractSlashCommand;
 import fr.xen0xys.discordjava.components.commands.SlashCommandOption;
 import fr.xen0xys.discordjava.components.commands.SlashSubCommand;
+import net.dv8tion.jda.api.interactions.commands.SlashCommandInteraction;
 import org.amicale_core.modals.MusicSuggestionModal;
 import org.amicale_core.modals.ProductSuggestionModal;
-import net.dv8tion.jda.api.interactions.commands.OptionMapping;
-import net.dv8tion.jda.api.interactions.commands.SlashCommandInteraction;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

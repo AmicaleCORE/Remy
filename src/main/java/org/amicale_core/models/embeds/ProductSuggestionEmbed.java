@@ -1,8 +1,8 @@
 package org.amicale_core.models.embeds;
 
-import org.amicale_core.Remy;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.Member;
+import org.amicale_core.Remy;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;

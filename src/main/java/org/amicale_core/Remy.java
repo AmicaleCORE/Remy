@@ -1,15 +1,15 @@
 package org.amicale_core;
 
-import net.dv8tion.jda.api.entities.*;
-import net.dv8tion.jda.api.entities.emoji.Emoji;
-import org.amicale_core.commands.SuggestCommand;
 import fr.xen0xys.discordjava.DJApp;
 import fr.xen0xys.discordjava.utils.IdUtils;
+import net.dv8tion.jda.api.entities.*;
+import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
+import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback;
+import org.amicale_core.commands.SuggestCommand;
 import org.amicale_core.models.RemyConfig;
 import org.amicale_core.models.SuggestionType;
 import org.amicale_core.models.embeds.ProductSuggestionEmbed;
-import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
-import net.dv8tion.jda.api.interactions.callbacks.IReplyCallback;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
